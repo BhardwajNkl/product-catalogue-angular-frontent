@@ -1,0 +1,20 @@
+
+.header{
+    color: green;
+}
+.main-content{
+    background-color: #E6E6FA;
+    border-radius: 10pt;
+}
+.side-area{
+    /* background: linear-gradient(to right,lightcyan, lightgreen); */
+}
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+input.ng-valid.ng-touched{
+    border: 1px solid blue;
+}
+small{
+    color: red;
+}

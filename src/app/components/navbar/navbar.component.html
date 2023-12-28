@@ -1,0 +1,14 @@
+<div class="container-fluid mt-2">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4"><h4>Product Search Web Application</h4></div>
+        <div *ngIf="loginStatus==false" class="col-4 nav-div-3">
+            <a routerLink="/login" class="btn btn-success btn-sm">Signin</a>
+            <a routerLink="/register" class="btn btn-sm ms-2">Register</a>
+        </div>
+        <div *ngIf="loginStatus==true" class="col-4 nav-div-3">
+            <span>{{userEmail}}</span>
+            <a (click)="onLogOut()" class="btn btn-danger btn-sm ms-2">Logout</a>
+        </div>
+    </div>
+</div>

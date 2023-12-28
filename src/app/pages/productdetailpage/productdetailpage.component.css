@@ -1,0 +1,15 @@
+/* Hides scrollbar across different browsers */
+/* Webkit (Chrome, Safari) */
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Firefox */
+  /* Note: The scrollbar will still be visible in Firefox */
+  html {
+    scrollbar-width: none;
+  }
+  
+  img{
+    max-height: 400px;;
+  }

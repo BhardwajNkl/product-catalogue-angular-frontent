@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-sm-6 col-md-5 image-container text-center">
+            <img width="80%" [src]="product.imageUrl">
+        </div>
+        <div class="col-sm-6 col-md-5 mt-5 details-container">
+            <h3>{{product.productName}}</h3>
+            Product Code: <b>{{product.productCode}}</b><br>
+            Brand: <b>{{product.productBrand}}</b><br>
+            Price: <b>Rs. {{product.productPrice}}</b><br>
+            <u>Description</u>: <span><i>{{product.productDescription}}</i></span>
+        </div>
+    </div>
+    <div class="ms-5 mt-3">
+        Check Availability: <input type="text" name="pincode" placeholder="pin code" #pincode>
+        <button class="btn btn-primary btn-sm ms-3" (click)="checkServicability(product.productId,pincode.value)">Check</button>
+        <div *ngIf="servicabilityStatus">{{servicabilityMessage}}</div>
+    </div>
+</div>

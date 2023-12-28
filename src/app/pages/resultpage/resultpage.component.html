@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+<div *ngIf="resultDataReceived==true" class="container mt-2">
+    <div class="row">
+        <div class="col-6 col-sm-12">
+            <b>Brands</b><br>
+            <span *ngFor="let brand of brandList">
+                <input type="checkbox" name="brand" (change)="onFilterChange(brand)"> {{brand}}
+            </span>
+            <span *ngIf="loggedin==false">
+                <br>
+                <button class="btn btn-sm btn-outline-warning" (click)="filterProductsByBrand()">Apply Filter</button>
+            </span>
+            <span *ngIf="loggedin==true">
+                <br>
+                <b>Max. Price</b><br>
+                <input type="text" #maxPrice>
+                <button class="btn btn-sm btn-outline-warning ms-2" (click)="filterProductsByBrandAndPrice(maxPrice.value)">Apply Filter</button>
+            </span>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div *ngIf="resultDataReceived" class="row">
+        <div *ngFor="let product of resultDisplayed" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 card-container">
+            <div class="card mt-1" style="width: 18rem;">
+                <img [src]="product.imageUrl" class="card-img-top card-image" alt="...">
+                <div class="card-body">
+                    <span class="card-title">{{product.name}}</span> <span *ngIf="product.price"
+                        class="ms-2 bg-info">Rs. {{product.price}}</span>
+                    <h5 class="card-title">{{product.brand}}</h5>
+                    <button *ngIf="product.price" class="btn btn-primary" (click)="getDetails(product.id)">See
+                        Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="resultDataReceived==false" class="no-product-found mt-5">
+        <img src="/assets/images/NoProductFound.jpg">
+    </div>
+
+</div>
